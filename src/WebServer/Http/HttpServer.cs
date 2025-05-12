@@ -15,7 +15,7 @@ namespace Restup.Webserver.Http
     public class HttpServer : IDisposable
     {
         private readonly int _port;
-        private readonly StreamSocketListener _listener;
+        public readonly StreamSocketListener _listener;
         private readonly SortedSet<RouteRegistration> _routes;
         private readonly ContentEncoderFactory _contentEncoderFactory;
         private readonly ILogger _log;

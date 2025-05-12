@@ -1,6 +1,6 @@
 namespace Restup.Webserver.Models.Contracts
 {
-    public interface IContentRestResponse : IRestResponse
+    public interface IContentSerializer : IRestResponse
     {
         object ContentData { get; }
     }

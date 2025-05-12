@@ -9,6 +9,7 @@ namespace Restup.Webserver.Models.Schemas
     {
         public enum ResponseStatus : int
         {
+            OK = 200,
             Created = 201,
             Conflict = 409
         };
@@ -27,8 +28,8 @@ namespace Restup.Webserver.Models.Schemas
         public PostResponse(ResponseStatus status, string locationRedirectUri, object content) : this(status, locationRedirectUri, content, ImmutableDictionary<string, string>.Empty)
         { }
 
-        public PostResponse(ResponseStatus status, string locationRedirectUri, IReadOnlyDictionary<string, string> headers) : this(status, locationRedirectUri, null, headers)
-        { }
+        //public PostResponse(ResponseStatus status, string locationRedirectUri, IReadOnlyDictionary<string, string> headers) : this(status, locationRedirectUri, null, headers)
+        //{ }
 
         public PostResponse(ResponseStatus status, string locationRedirectUri) : this(status, locationRedirectUri, null, ImmutableDictionary<string, string>.Empty)
         { }

@@ -25,7 +25,7 @@ namespace Restup.Webserver.Rest
             if (postResponse != null)
                 return GetPostResponse(postResponse, restServerRequest);
 
-            var response = restResponse as IContentRestResponse;
+            var response = restResponse as IContentSerializer;
             if (response != null)
                 return GetDefaultContentResponse(response, restServerRequest);
 
@@ -53,7 +53,7 @@ namespace Restup.Webserver.Rest
             return serverResponse;
         }
 
-        private HttpServerResponse GetDefaultContentResponse(IContentRestResponse response, RestServerRequest restReq)
+        private HttpServerResponse GetDefaultContentResponse(IContentSerializer response, RestServerRequest restReq)
         {
             var defaultResponse = GetDefaultResponse(response);
 

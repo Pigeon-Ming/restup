@@ -11,11 +11,12 @@
     <AssemblyName>Restup.WebServer</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -146,6 +147,8 @@
     <Compile Include="Models\Schemas\MediaType.cs" />
     <Compile Include="Models\Schemas\RestResponse.cs" />
     <Compile Include="Models\Schemas\RestServerRequest.cs" />
+    <Compile Include="OperationController.cs" />
+    <Compile Include="RestupTest.cs" />
     <Compile Include="Rest\MatchUri.cs" />
     <Compile Include="Rest\ParameterValueGetter.cs" />
     <Compile Include="Rest\ParsedUri.cs" />
@@ -183,11 +186,14 @@
     <Compile Include="Rest\UriParameter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="project.json" />
     <None Include="restup-tmp1.snk" />
     <None Include="WebServer.nuspec" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\UniversalSend\src\UniversalSend.Models\UniversalSend.Models.csproj">
+      <Project>{271ddfd9-c2e7-47da-a0dd-6d8553987df6}</Project>
+      <Name>UniversalSend.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebServer.Logging\WebServer.Logging.csproj">
       <Project>{06a3d120-5923-4ad1-8411-7395a1ec6e94}</Project>
       <Name>WebServer.Logging</Name>
@@ -196,6 +202,23 @@
       <Project>{0b20d095-2896-41a6-865d-172dfd5ecc99}</Project>
       <Name>Webserver.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ApplicationInsights.PersistenceChannel">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ApplicationInsights.WindowsApps">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>7.0.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="..\HttpMessage\HttpMessage.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
